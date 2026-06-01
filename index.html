@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mano Svetainė | Pradžia</title>
+    <title>Mano Svetainė - Viskas viename</title>
     <style>
-        /* Bendri stiliai */
+        /* --- BENDRAS STILIUS --- */
         * {
             margin: 0;
             padding: 0;
@@ -16,17 +16,17 @@
         body {
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
 
-        /* Navigacija */
+        /* --- NAVIGACIJA --- */
         header {
             background: #fff;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -37,6 +37,7 @@
             font-weight: bold;
             color: #2c3e50;
             text-decoration: none;
+            cursor: pointer;
         }
 
         nav ul {
@@ -45,237 +46,278 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: 0.3s;
+            cursor: pointer;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a.active {
             color: #3498db;
         }
 
-        /* Pagrindinė dalis (Hero section) */
+        /* --- PUSLAPIŲ VALDYMAS (Svarbu!) --- */
+        .page {
+            display: none; /* Paslepiame visus puslapius */
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block; /* Rodome tik aktyvų */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- PAGRINDINIS PUSLAPIS (HERO) --- */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             color: white;
+            text-align: center;
             padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
         .btn {
-            display: inline-block;
             background: #3498db;
             color: white;
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background: #2980b9;
+        /* --- APIE MUS SEKCIJA --- */
+        .content-section {
+            padding: 80px 10%;
         }
 
-        /* Paslaugų sekcija */
-        .services {
-            padding: 50px 5%;
-            text-align: center;
-            background: white;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        .services h2 {
-            margin-bottom: 40px;
-            font-size: 2rem;
+        .placeholder-img {
+            background: #ddd;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #777;
         }
 
+        /* --- PASLAUGŲ SEKCIJA --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
 
         .service-card {
-            padding: 30px;
-            border: 1px solid #ddd;
+            background: white;
+            padding: 40px;
             border-radius: 10px;
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+        /* --- KONTAKTŲ SEKCIJA --- */
+        .contact-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
-        .service-card i {
-            font-size: 2rem;
-            color: #3498db;
-            margin-bottom: 15px;
-            display: block;
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
-        /* Kontaktai / Footeris */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* --- FOOTERIS --- */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 40px 5% 20px;
             text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
         }
 
-        .footer-content {
-            margin-bottom: 20px;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-        }
-
-        /* Mobiliesiems įrenginiams */
+        /* --- MOBILUS --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav ul { display: none; } /* Paprastumo dėlei paslepiame meniu mobiliam */
+            .about-grid, .contact-flex { grid-template-columns: 1fr; }
+            nav ul { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">ManoLOGOTIPAS</a>
+        <div class="logo" onclick="showPage('home')">ManoVERSLAS</div>
         <nav>
             <ul>
-                <li><a href="#">Pradžia</a></li>
-                <li><a href="#">Apie mus</a></li>
-                <li><a href="#">Paslaugos</a></li>
-                <li><a href="#">Kontaktai</a></li>
+                <li><a onclick="showPage('home')" id="link-home">Pradžia</a></li>
+                <li><a onclick="showPage('about')" id="link-about">Apie mus</a></li>
+                <li><a onclick="showPage('services')" id="link-services">Paslaugos</a></li>
+                <li><a onclick="showPage('contact')" id="link-contact">Kontaktai</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Sekcija -->
-        <section class="hero">
-            <h1>Sveiki atvykę į mūsų svetainę</h1>
-            <p>Mes teikiame aukščiausios kokybės paslaugas jūsų verslo sėkmei. Pradėkite savo kelionę su mumis jau šiandien.</p>
-            <a href="#paslaugos" class="btn">Sužinoti daugiau</a>
+        <!-- PAGRINDINIS PUSLAPIS -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h1>Ateities sprendimai jūsų verslui</h1>
+                <p>Mes padedame įmonėms augti skaitmeninėje erdvėje.</p>
+                <button class="btn" onclick="showPage('services')">Mūsų paslaugos</button>
+            </div>
         </section>
 
-        <!-- Paslaugų Sekcija -->
-        <section id="paslaugos" class="services">
-            <h2>Mūsų Paslaugos</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i>🚀</i>
-                    <h3>Greitis</h3>
-                    <p>Optimizuojame jūsų procesus, kad pasiektumėte rezultatus greičiau nei bet kada anksčiau.</p>
+        <!-- APIE MUS -->
+        <section id="about" class="page">
+            <div class="content-section">
+                <div class="about-grid">
+                    <div>
+                        <h2>Kas mes esame?</h2>
+                        <br>
+                        <p>Esame profesionalų komanda, siekianti padėti verslui pasiekti naujas aukštumas. Mūsų patirtis leidžia pasiūlyti geriausius sprendimus rinkoje.</p>
+                        <br>
+                        <p>Tikime skaidrumu, inovacijos ir nuolatiniu tobulėjimu. Kiekvienas klientas mums yra partneris.</p>
+                    </div>
+                    <div class="placeholder-img">
+                        Nuotrauka čia
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i>💎</i>
-                    <h3>Kokybė</h3>
-                    <p>Kiekviena detalė mums svarbi. Užtikriname aukščiausius standartus kiekviename žingsnyje.</p>
+            </div>
+        </section>
+
+        <!-- PASLAUGOS -->
+        <section id="services" class="page">
+            <div class="content-section">
+                <h2 style="text-align: center;">Mūsų Paslaugos</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i>💻</i>
+                        <h3>IT Sprendimai</h3>
+                        <p>Programinės įrangos kūrimas ir sistemų priežiūra.</p>
+                    </div>
+                    <div class="service-card">
+                        <i>📈</i>
+                        <h3>Marketingas</h3>
+                        <p>Strateginis planavimas ir prekės ženklo žinomumo didinimas.</p>
+                    </div>
+                    <div class="service-card">
+                        <i>🎨</i>
+                        <h3>Dizainas</h3>
+                        <p>Modernus UI/UX dizainas jūsų svetainėms ir programėlėms.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i>🛡️</i>
-                    <h3>Saugumas</h3>
-                    <p>Jūsų duomenys ir privatumas yra mūsų didžiausias prioritetas.</p>
+            </div>
+        </section>
+
+        <!-- KONTAKTAI -->
+        <section id="contact" class="page">
+            <div class="content-section">
+                <div class="contact-flex">
+                    <div>
+                        <h2>Susisiekite</h2>
+                        <p>Užpildykite formą ir mes atsakysime per 24 valandas.</p>
+                        <br>
+                        <p>📍 Gedimino pr. 1, Vilnius</p>
+                        <p>📞 +370 600 00000</p>
+                        <p>✉️ info@pavyzdys.lt</p>
+                    </div>
+                    <form onsubmit="handleForm(event)">
+                        <div class="form-group">
+                            <label>Vardas</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>El. paštas</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Žinutė</label>
+                            <textarea rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Siųsti</button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <h3>Susisiekite su mumis</h3>
-            <p>El. paštas: info@pavyzdys.lt</p>
-            <p>Tel: +370 600 00000</p>
-        </div>
-        <div class="copyright">
-            &copy; 2023 Mano Svetainė. Visos teisės saugomos.
-        </div>
-    </footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="lt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apie mus | Mano Svetainė</title>
-    <link rel="stylesheet" href="style.css"> <!-- Jei naudosite išorinį CSS -->
-    <style>
-        /* Čia naudojame tuos pačius stilius kaip index.html konsistencijai */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        header { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #2c3e50; text-decoration: none; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
-        nav ul li a:hover { color: #3498db; }
-        
-        .content-section { padding: 80px 10%; line-height: 1.8; }
-        .content-section h1 { margin-bottom: 20px; color: #2c3e50; }
-        .about-flex { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
-        .about-text { flex: 1; min-width: 300px; }
-        .about-image { flex: 1; min-width: 300px; background: #ddd; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-style: italic; color: #666; }
-        
-        footer { background: #2c3e50; color: white; padding: 40px 5% 20px; text-align: center; margin-top: 50px; }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="index.html" class="logo">ManoLOGOTIPAS</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Pradžia</a></li>
-                <li><a href="apie.html" style="color: #3498db;">Apie mus</a></li>
-                <li><a href="paslaugos.html">Paslaugos</a></li>
-                <li><a href="kontaktai.html">Kontaktai</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="content-section">
-        <div class="about-flex">
-            <div class="about-text">
-                <h1>Apie mūsų komandą</h1>
-                <p>Mes esame inovatyvi komanda, dirbanti rinkoje jau daugiau nei 10 metų. Mūsų tikslas – padėti klientams pasiekti savo tikslus naudojant moderniausias technologijas.</p>
-                <br>
-                <p>Kiekvienas projektas mums yra unikalus, todėl skiriame maksimalų dėmesį detalėms ir kokybei. Tikime, kad sėkmės paslaptis yra nuoširdus bendravimas ir profesionalumas.</p>
-            </div>
-            <div class="about-image">
-                [Čia galite įsidėti savo komandos nuotrauką]
-            </div>
-        </div>
-    </section>
-
-    <footer>
         <p>&copy; 2023 Mano Svetainė. Visos teisės saugomos.</p>
     </footer>
+
+    <script>
+        // FUNKCIJA PUSLAPIŲ KEITIMUI
+        function showPage(pageId) {
+            // 1. Paslepiame visus puslapius
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // 2. Parodome pasirinktą puslapį
+            document.getElementById(pageId).classList.add('active');
+
+            // 3. Atnaujiname aktyvią nuorodą meniu
+            const links = document.querySelectorAll('nav ul li a');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('link-' + pageId).classList.add('active');
+
+            // 4. Persukame į viršų
+            window.scrollTo(0, 0);
+        }
+
+        // FORMOS VALDYMAS
+        function handleForm(event) {
+            event.preventDefault();
+            alert('Ačiū! Jūsų žinutė gauta. Susisieksime netrukus.');
+            event.target.reset(); // Išvalome formą
+        }
+    </script>
 </body>
 </html>
