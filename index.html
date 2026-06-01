@@ -220,3 +220,62 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apie mus | Mano Svetainė</title>
+    <link rel="stylesheet" href="style.css"> <!-- Jei naudosite išorinį CSS -->
+    <style>
+        /* Čia naudojame tuos pačius stilius kaip index.html konsistencijai */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        header { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #2c3e50; text-decoration: none; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
+        nav ul li a:hover { color: #3498db; }
+        
+        .content-section { padding: 80px 10%; line-height: 1.8; }
+        .content-section h1 { margin-bottom: 20px; color: #2c3e50; }
+        .about-flex { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-image { flex: 1; min-width: 300px; background: #ddd; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-style: italic; color: #666; }
+        
+        footer { background: #2c3e50; color: white; padding: 40px 5% 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">ManoLOGOTIPAS</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Pradžia</a></li>
+                <li><a href="apie.html" style="color: #3498db;">Apie mus</a></li>
+                <li><a href="paslaugos.html">Paslaugos</a></li>
+                <li><a href="kontaktai.html">Kontaktai</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content-section">
+        <div class="about-flex">
+            <div class="about-text">
+                <h1>Apie mūsų komandą</h1>
+                <p>Mes esame inovatyvi komanda, dirbanti rinkoje jau daugiau nei 10 metų. Mūsų tikslas – padėti klientams pasiekti savo tikslus naudojant moderniausias technologijas.</p>
+                <br>
+                <p>Kiekvienas projektas mums yra unikalus, todėl skiriame maksimalų dėmesį detalėms ir kokybei. Tikime, kad sėkmės paslaptis yra nuoširdus bendravimas ir profesionalumas.</p>
+            </div>
+            <div class="about-image">
+                [Čia galite įsidėti savo komandos nuotrauką]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Mano Svetainė. Visos teisės saugomos.</p>
+    </footer>
+</body>
+</html>
